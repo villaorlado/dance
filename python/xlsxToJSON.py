@@ -14,7 +14,7 @@ def col2num(col_str):
     return col_num-1
 
 #open names and write to file
-for fileItem in glob.glob("../data/*ah.xlsx"):	
+for fileItem in glob.glob("../data/*.xlsx"):	
 	
 	newcsv = "lkneex,lkneey,rkneex,rkneey,lwristx,lwristy,lwristz,rwristx,rwristy,rwristz,lhipx,lhipy,lhipz,rhipx,rhipy,rhipz,lshoulderx,lshouldery,rshoulderx,rshouldery"
 	

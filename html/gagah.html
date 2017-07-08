@@ -1,217 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Gagah</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!--Video.js-->
-    <link href="css/video-js.css" rel="stylesheet" type="text/css">
-
-    <!--D3 graph -->
-    <link rel="stylesheet" href="css/jointshtroughtime.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>
+   Gagah
+  </title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Custom CSS -->
+  <link href="css/sb-admin.css" rel="stylesheet"/>
+  <!-- Morris Charts CSS -->
+  <link href="css/plugins/morris.css" rel="stylesheet"/>
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <!--Video.js-->
+  <link href="css/video-js.css" rel="stylesheet" type="text/css"/>
+  <!--D3 graph -->
+  <link href="css/jointshtroughtime.css" rel="stylesheet"/>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">JOGET</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-              <li><a href="#">A biomechanic analysis of Javanese Dance</a></li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.html">About</a>
-                    </li>
-                    <li>
-                        <a href="luruh.html"><i class="fa fa-fw fa-bar-chart-o"></i> Luruh</a>
-                    </li>
-                    <li>
-                        <a href="lanyap.html"><i class="fa fa-fw fa-bar-chart-o"></i> Lanyap</a>
-                    </li>
-                    <li class="active">
-                        <a href="gagah.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gagah</a>
-                    </li>
-                    <li>
-                        <a href="raksasa.html"><i class="fa fa-fw fa-bar-chart-o"></i> Raksasa</a>
-                    </li>
-                    <li>
-                        <a href="jatayu.html"><i class="fa fa-fw fa-bar-chart-o"></i> Jatayu</a>
-                    </li>
-                    <li>
-                        <a href="comparisons.html"><i class="fa fa-fw fa-table"></i> Comparisons</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Gagah
-                        </h1>
-
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="glyphicon glyphicon-film"></i> Animation</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="flot-chart">
-                                  <video id="my-video" class="video-js  vjs-default-skin vjs-big-play-centered" controls="true" preload="auto" width="100%" height="350px" data-setup="{}">
-                                    <source src="videos/gagah.mp4" type='video/mp4'>
-                                    <p class="vjs-no-js">
-                                        To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                                    </p>
-                                  </video>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> Right knee in relation to time</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="flot-chart">
-                                    <div id="chartdiv" height="10px" widht="10px"></div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="form-group">
-                                    <label>Select a joint</label>
-                                    <select id="joint" class="form-control">
-                                      <option value="lkneex">Left Knee X</option>
-                                      <option value="lkneey">Left Knee Y</option>
-                                      <option value="rkneex">Right Knee X</option>
-                                      <option value="rkneey">Right Knee Y</option>
-                                      <option value="rwristx">Left Wrist X</option>
-                                      <option value="lwristy">Left Wrist Y</option>
-                                      <option value="lwristz">Left Wrist Z</option>
-                                      <option value="rwristx">Right Wrist X</option>
-                                      <option value="rwristy">Right Wrist Y</option>
-                                      <option value="rwristz">Right Wrist Z</option>
-                                      <option value="lhipx">Left Hip Angle X</option>
-                                      <option value="lhipy">Left Hip Angle Y</option>
-                                      <option value="lhipz">Left Hip Angle Z</option>
-                                      <option value="rhipx">Right Hip Angle X</option>
-                                      <option value="rhipy">Right Hip Angle Y</option>
-                                      <option value="rhipz">Right Hip Angle Z</option>
-                                      <option value="rshoulderx">Right Shoulder X</option>
-                                      <option value="rshouldery">Right Shoulder Y</option>
-                                      <option value="lshoulderx">Left Shoulder X</option>
-                                      <option value="lshouldery">Left Shoulder Y</option>
-                                    </select>
-                                  </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <!-- Exmplanation -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">Javanese context</h2>
-<p class="lead">                        Tari Golek Ayun-ayun yang merupakan salah satu tarian tradisional Yogyakarta yang diciptakan oleh (Alm) KRT Sasmita Dipura (Romo Sas).
+ </head>
+ <body>
+  <div id="wrapper">
+   <!-- Navigation -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+     <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+      <span class="sr-only">
+       Toggle navigation
+      </span>
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+     </button>
+     <a class="navbar-brand" href="index.html">
+      JOGET
+     </a>
+    </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+     <li>
+      <a href="#">
+       A biomechanic analysis of Javanese Dance
+      </a>
+     </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+     <ul class="nav navbar-nav side-nav">
+      <li>
+       <a href="index.html">
+        About
+       </a>
+      </li>
+      <li>
+       <a href="luruh.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Luruh
+       </a>
+      </li>
+      <li>
+       <a href="lanyap.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Lanyap
+       </a>
+      </li>
+      <li class="active">
+       <a href="gagah.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Gagah
+       </a>
+      </li>
+      <li>
+       <a href="raksasa.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Raksasa
+       </a>
+      </li>
+      <li>
+       <a href="jatayu.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Jatayu
+       </a>
+      </li>
+      <li>
+       <a href="comparisons.html">
+        <i class="fa fa-fw fa-table">
+        </i>
+        Comparisons
+       </a>
+      </li>
+     </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+   </nav>
+   <div id="page-wrapper">
+    <div class="container-fluid">
+     <!-- Page Heading -->
+     <div class="row">
+      <div class="col-lg-12">
+       <h1 class="page-header">
+        Gagah
+       </h1>
+      </div>
+     </div>
+     <!-- /.row -->
+     <div class="row">
+      <div class="col-lg-6">
+       <div class="panel panel-primary">
+        <div class="panel-heading">
+         <h3 class="panel-title">
+          <i class="glyphicon glyphicon-film">
+          </i>
+          Animation
+         </h3>
+        </div>
+        <div class="panel-body">
+         <div class="flot-chart">
+          <video class="video-js vjs-default-skin vjs-big-play-centered" controls="true" data-setup="{}" height="350px" id="my-video" preload="auto" width="100%">
+           <source src="videos/gagah.mp4" type="video/mp4"/>
+           <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">
+             supports HTML5 video
+            </a>
+           </p>
+          </video>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-6">
+       <div class="panel panel-primary">
+        <div class="panel-heading">
+         <h3 class="panel-title">
+          <i class="glyphicon glyphicon-stats">
+          </i>
+          Right knee in relation to time
+         </h3>
+        </div>
+        <div class="panel-body">
+         <div class="flot-chart">
+          <div height="10px" id="chartdiv" widht="10px">
+          </div>
+         </div>
+         <div class="text-center">
+          <div class="form-group">
+           <label>
+            Select a joint
+           </label>
+           <select class="form-control" id="joint">
+            <option value="lkneex">
+             Left Knee X
+            </option>
+            <option value="lkneey">
+             Left Knee Y
+            </option>
+            <option value="rkneex">
+             Right Knee X
+            </option>
+            <option value="rkneey">
+             Right Knee Y
+            </option>
+            <option value="rwristx">
+             Left Wrist X
+            </option>
+            <option value="lwristy">
+             Left Wrist Y
+            </option>
+            <option value="lwristz">
+             Left Wrist Z
+            </option>
+            <option value="rwristx">
+             Right Wrist X
+            </option>
+            <option value="rwristy">
+             Right Wrist Y
+            </option>
+            <option value="rwristz">
+             Right Wrist Z
+            </option>
+            <option value="lhipx">
+             Left Hip Angle X
+            </option>
+            <option value="lhipy">
+             Left Hip Angle Y
+            </option>
+            <option value="lhipz">
+             Left Hip Angle Z
+            </option>
+            <option value="rhipx">
+             Right Hip Angle X
+            </option>
+            <option value="rhipy">
+             Right Hip Angle Y
+            </option>
+            <option value="rhipz">
+             Right Hip Angle Z
+            </option>
+            <option value="rshoulderx">
+             Right Shoulder X
+            </option>
+            <option value="rshouldery">
+             Right Shoulder Y
+            </option>
+            <option value="lshoulderx">
+             Left Shoulder X
+            </option>
+            <option value="lshouldery">
+             Left Shoulder Y
+            </option>
+           </select>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- /.row -->
+     <!-- Exmplanation -->
+     <div class="row">
+      <div class="col-lg-12">
+       <h2 class="page-header">
+        Javanese context
+       </h2>
+       <p class="lead">
+        Tari Golek Ayun-ayun yang merupakan salah satu tarian tradisional Yogyakarta yang diciptakan oleh (Alm) KRT Sasmita Dipura (Romo Sas).
 
 Tarian ini ditampilkan untuk menyambut tamu kehormatan dan biasanya dibawakan oleh dua orang penari. Gerakannya sangat lembut dan penuh makna. seolah sang penari sedang bersolek. Gerakan yang lain juga memperlihatkan seolah ia tengah menyulam.
 
 Penari golek ayun-ayun mengenakan balutan baju beludru hitam serasi dipadankan dengan bawahan kain batik putih. Mahkota merak bersayap merah muda tambah mempercantik penampilan sang penari Tarian ini dapat disaksikan setiap hari Minggu di Pendapa (Bangsal) Sri Manganti, Keraton Jogjakarta dari pukul 10.00 WIB sampai dengan 12.00 WIB. Biasanya ada tiga jenis tarian yang ditampilkan. Tari Golek Ayun-ayun, Beksan Srikandi Suradewati dan Sendratari Arjuna Wiwaha.
-</p>
-                    </div>
-                  </div>
-
-                <!-- /.row -->
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
+       </p>
+      </div>
+     </div>
+     <!-- /.row -->
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Video.js-->
-    <script src="js/video.js"></script>
-
-    <!-- D3 -->
-    <script src="js/d3.v3.min.js"></script>
-    <script>
-    var character = "gagah";
+    <!-- /.container-fluid -->
+   </div>
+   <!-- /#page-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+  <!-- jQuery -->
+  <script src="js/jquery.js">
+  </script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js">
+  </script>
+  <!-- Video.js-->
+  <script src="js/video.js">
+  </script>
+  <!-- D3 -->
+  <script src="js/d3.v3.min.js">
+  </script>
+  <script>
+   var character = "gagah";
     var rownumber = 300;
-    </script>
-    <script src="js/jointsthroughtime.js"></script>
-    <script src="js/dancevideo.js"></script>
-
-<script type="text/javascript">
-
-makeChart("lkneex",false);
+  </script>
+  <script src="js/jointsthroughtime.js">
+  </script>
+  <script src="js/dancevideo.js">
+  </script>
+  <script type="text/javascript">
+   makeChart("lkneex",false);
 var interval = setInterval(checkVideo, 100);
 
 $("#joint").change(function(){
@@ -220,9 +286,6 @@ $("#joint").change(function(){
   makeChart($('#joint').val(),true);
   var interval = setInterval(checkVideo, 100);
 });
-
-</script>
-
-</body>
-
+  </script>
+ </body>
 </html>
