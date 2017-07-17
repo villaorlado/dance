@@ -1,0 +1,73 @@
+<html>
+<body>
+<style>
+#leg{
+   position:fixed;
+   top:3px;
+   left:30px;
+   -webkit-transform: rotate(-25deg);
+   -webkit-transform-origin: 120px 40px;
+   opacity:0.5;
+   z-index:1;
+}
+
+#leg2{
+   /*transform: rotate(270deg);*/
+   position:fixed;
+   top:3px;
+   left:30px;
+   opacity:0.5;
+   z-index:2;
+}
+
+</style>
+
+<svg xmlns="http://www.w3.org/2000/svg" height="300">
+    <line id="line" x1="100" y1="100" x2="100" y2="180" stroke-width="2"
+          stroke="black">
+    </line>
+
+    <line id="line3" x1="100" y1="20" x2="100" y2="100" stroke-width="2"
+          stroke="red">
+    </line>
+</svg>
+
+
+
+<img id="leg" src="leg.png"></img>
+<img id="leg2" src="leg.png"></img>
+
+<script>
+var line = document.getElementById("line");
+var centerX = 20, centerY = 100, radius = 80, angle = 0;
+var rotate = function(angle){
+    //angle+=270;
+    angle = angle * (Math.PI/180);
+
+    var x1, y1, x2, y2;
+ 	  //x1 = centerX + radius * Math.cos( angle );
+    //y1 = centerY + radius * Math.sin( angle );
+    //x1 = 20;
+    //y1 = 100;
+    //x2 = centerX - radius * Math.cos( angle );
+    //y2 = centerY - radius * Math.sin( angle );
+    y2 = 100 - (Math.sin(angle) * 80);
+    x2 = 100 - (Math.cos(angle) * 80);
+
+    //line.setAttribute( 'x1', x1 );
+    //line.setAttribute( 'y1', y1 );
+    line.setAttribute( 'x2', x2 );
+    line.setAttribute( 'y2', y2 );
+}
+// animation
+/*
+setInterval( function(){
+    angle += .1;
+    rotate( angle );
+},100);
+*/
+bu = -10;
+rotate(270 + bu); //180-x
+</script>
+</html>
+</body>

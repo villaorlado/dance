@@ -1,10 +1,40 @@
-<link rel="stylesheet" href="css/comparisson.css">
-<script src="js/comparison.js"></script>
-  <script src="js/d3.v3.min.js"></script>
+<link rel="stylesheet" href="css/jointcomparison.css">
+<link type="text/css" rel="stylesheet" href="css/jquery.dataTables.min.css"></link>
+<script src="js/jquery.js"></script>
+<script src="js/jointcomparison.js"></script>
+<script src="js/d3.v3.min.js"></script>
 <div id="chartdiv"></div>
+<script src="js/jquery.dataTables.min.js"></script>
+
+<table id="linktableDisguised" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Character Type</th>
+                <th>Max</th>
+                <th>Min</th>
+                <th>ROM</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Character Type</th>
+                <th>Max</th>
+                <th>Min</th>
+                <th>ROM</th>
+            </tr>
+        </tfoot>
+    </table>
 
 <script>
-character = "gagah";
-rownumber = 300;
-makeChart("lkneex");
+makeChart("LKneeAngles_x");
+
+/*
+$(document).ready(function(){
+  table = $("#linktableDisguised").DataTable({
+  data:dataSet,"order": [[ 1, "desc" ]]});
+    $('#linktableDisguised tbody').on('click', 'tr', function () {
+      var data = table.row(this).data();
+      window.location = data[0] + '.html';});
+  });
+*/
 </script>

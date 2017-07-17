@@ -1,0 +1,57 @@
+body { font: 12px Arial;}
+
+path {
+    stroke: black;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.characterLines{
+  opacity:0.5;
+}
+
+.gagah{
+  stroke:black;
+}
+
+.luruh{
+  fill:blue;
+  stroke:blue;
+}
+
+.jatayu{
+  fill:red;
+  stroke:red;
+}
+
+.raksasa{
+  fill:green;
+  stroke:green;
+}
+
+.lanyap{
+  fill:orange;
+  stroke:orange;
+}
+
+.wanara{
+  fill:brown;
+  stroke:brown;
+}
+
+
+/*.doti{
+  display:none;
+}*/
+
+/*#gato2{
+  fill:red;
+}*/

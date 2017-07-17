@@ -142,6 +142,104 @@
             </a>
            </p>
           </video>
+          <p>
+           <div class="text-left">
+            <div class="form-group">
+             <select class="form-control" id="joint">
+              <option value="gagah_LKneeAngles_x">
+               Left Knee (x)
+              </option>
+              <option value="gagah_LKneeAngles_y">
+               Left Knee (y)
+              </option>
+              <option value="gagah_LKneeAngles_z">
+               Left Knee (z)
+              </option>
+              <option value="gagah_RKneeAngles_x">
+               Right Knee (x)
+              </option>
+              <option value="gagah_RKneeAngles_y">
+               Right Knee (y)
+              </option>
+              <option value="gagah_RKneeAngles_z">
+               Right Knee (z)
+              </option>
+              <option value="gagah_LWristAngles_x">
+               Left Wrist (x)
+              </option>
+              <option value="gagah_LWristAngles_y">
+               Left Wrist (y)
+              </option>
+              <option value="gagah_LWristAngles_z">
+               Left Wrist (z)
+              </option>
+              <option value="gagah_RWristAngles_x">
+               Right Wrist (x)
+              </option>
+              <option value="gagah_RWristAngles_y">
+               Right Wrist (y)
+              </option>
+              <option value="gagah_RWristAngles_z">
+               Right Wrist (z)
+              </option>
+              <option value="gagah_LHipAngles_x">
+               Left Hip (x)
+              </option>
+              <option value="gagah_LHipAngles_y">
+               Left Hip (y)
+              </option>
+              <option value="gagah_LHipAngles_z">
+               Left Hip (z)
+              </option>
+              <option value="gagah_RHipAngles_x">
+               Right Hip (x)
+              </option>
+              <option value="gagah_RHipAngles_y">
+               Right Hip (y)
+              </option>
+              <option value="gagah_RHipAngles_z">
+               Right Hip (z)
+              </option>
+              <option value="gagah_RShoulderAngles_x">
+               Right Shoulder (x)
+              </option>
+              <option value="gagah_RShoulderAngles_y">
+               Right Shoulder (y)
+              </option>
+              <option value="gagah_RShoulderAngles_z">
+               Right Shoulder (z)
+              </option>
+              <option value="gagah_LShoulderAngles_x">
+               Left Shoulder (x)
+              </option>
+              <option value="gagah_LShoulderAngles_y">
+               Left Shoulder (y)
+              </option>
+              <option value="gagah_LShoulderAngles_z">
+               Left Shoulder (z)
+              </option>
+              <option value="gagah_RElbowAngles_x">
+               Right Elbow (x)
+              </option>
+              <option value="gagah_RElbowAngles_y">
+               Right Elbow (y)
+              </option>
+              <option value="gagah_RElbowAngles_z">
+               Right Elbow (z)
+              </option>
+              <option value="gagah_LElbowAngles_x">
+               Left Elbow (x)
+              </option>
+              <option value="gagah_LElbowAngles_y">
+               Left Elbow (y)
+              </option>
+              <option value="gagah_LElbowAngles_z">
+               Left Elbow (z)
+              </option>
+             </select>
+            </div>
+           </div>
+          </p>
          </div>
         </div>
        </div>
@@ -152,7 +250,8 @@
          <h3 class="panel-title">
           <i class="glyphicon glyphicon-stats">
           </i>
-          Right knee in relation to time
+          <span id="currentJoint">
+          </span>
          </h3>
         </div>
         <div class="panel-body">
@@ -160,80 +259,23 @@
           <div height="10px" id="chartdiv" widht="10px">
           </div>
          </div>
-         <div class="text-center">
-          <div class="form-group">
-           <label>
-            Select a joint
-           </label>
-           <select class="form-control" id="joint">
-            <option value="lkneex">
-             Left Knee X
-            </option>
-            <option value="lkneey">
-             Left Knee Y
-            </option>
-            <option value="rkneex">
-             Right Knee X
-            </option>
-            <option value="rkneey">
-             Right Knee Y
-            </option>
-            <option value="rwristx">
-             Left Wrist X
-            </option>
-            <option value="lwristy">
-             Left Wrist Y
-            </option>
-            <option value="lwristz">
-             Left Wrist Z
-            </option>
-            <option value="rwristx">
-             Right Wrist X
-            </option>
-            <option value="rwristy">
-             Right Wrist Y
-            </option>
-            <option value="rwristz">
-             Right Wrist Z
-            </option>
-            <option value="lhipx">
-             Left Hip Angle X
-            </option>
-            <option value="lhipy">
-             Left Hip Angle Y
-            </option>
-            <option value="lhipz">
-             Left Hip Angle Z
-            </option>
-            <option value="rhipx">
-             Right Hip Angle X
-            </option>
-            <option value="rhipy">
-             Right Hip Angle Y
-            </option>
-            <option value="rhipz">
-             Right Hip Angle Z
-            </option>
-            <option value="rshoulderx">
-             Right Shoulder X
-            </option>
-            <option value="rshouldery">
-             Right Shoulder Y
-            </option>
-            <option value="lshoulderx">
-             Left Shoulder X
-            </option>
-            <option value="lshouldery">
-             Left Shoulder Y
-            </option>
-           </select>
-          </div>
-         </div>
+         <span id="min">
+         </span>
+         <span id="max">
+         </span>
+         <span id="rom">
+         </span>
         </div>
        </div>
       </div>
      </div>
      <!-- /.row -->
+     <svg height="300" id="jointangle" xmlns="http://www.w3.org/2000/svg">
+      <line id="line" stroke="black" stroke-width="2" x1="100" x2="100" y1="100" y2="180">
+      </line>
+      <line id="line3" stroke="red" stroke-width="2" x1="100" x2="100" y1="20" y2="100">
+      </line>
+     </svg>
      <!-- Exmplanation -->
      <div class="row">
       <div class="col-lg-12">
@@ -269,21 +311,23 @@ Penari golek ayun-ayun mengenakan balutan baju beludru hitam serasi dipadankan d
   <script src="js/d3.v3.min.js">
   </script>
   <script>
-   var character = "gagah";
-    var rownumber = 300;
+   //var character = "gagah";
+    var rownumber = 400;
   </script>
   <script src="js/jointsthroughtime.js">
   </script>
   <script src="js/dancevideo.js">
   </script>
   <script type="text/javascript">
-   makeChart("lkneex",false);
+   makeChart("gagah_LKneeAngles_x",false);
+$("#currentJoint").html("Left Knee (x)");
 var interval = setInterval(checkVideo, 100);
 
 $("#joint").change(function(){
   clearInterval(interval);
-  d3.selectAll("svg").remove();
+  d3.selectAll("#jointsthroughtime").remove();
   makeChart($('#joint').val(),true);
+  $("#currentJoint").html($('#joint option:selected').text());
   var interval = setInterval(checkVideo, 100);
 });
   </script>

@@ -4,7 +4,6 @@ if (reload){
   //svg.remove();
 }
 
-
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 550 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
@@ -37,19 +36,23 @@ var svg = d3.select("#chartdiv")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("id", "jointsthroughtime")
     .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/" + character + ".csv", function(error, data) {
+d3.csv("data/all.csv", function(error, data) {
     data.forEach(function(d) {
         d.angle = +d[joint];
     });
 
     // Scale the range of the data
-    y.domain(d3.extent(data, function(d) { return d.angle; }));
+    jointExtent = d3.extent(data, function(d) { return d.angle; });
+    y.domain([jointExtent[0]-10,jointExtent[1]+10]);
     x.domain([0, rownumber]);
-
+    $("#min").html("<b>Min:</b> "+jointExtent[0]);
+    $("#max").html("<b>Max:</b> "+jointExtent[1]);
+    $("#rom").html("<b>Rom:</b> "+(jointExtent[1]-jointExtent[0]));
     // Add the valueline path.
     svg.append("path")
         .attr("class", "line")
@@ -61,17 +64,18 @@ d3.csv("data/" + character + ".csv", function(error, data) {
     svg.selectAll("dot")
         .data(data)
       .enter().append("circle")
-        .attr("r", 2)
+        .attr("r", 3)
         .attr("id", function(d) {
           counter += 1;
           return "gato" + counter;
         })
-        .on('click',function(d,i){
-
+        .attr("class","joint")
+        .on('mouseover',function(d,i){
           videoTime =  parseInt(this.id.split("gato")[1])/100;
-          console.log(videoTime);
+          var currentAngle = y.invert(d3.mouse(this)[1]);
+          console.log(currentAngle);
           goDance(videoTime);
-
+          rotate(currentAngle);
         })
         .attr("cy", function(d) { return y(d.angle); })
         .attr("cx", function(d) {
@@ -93,17 +97,19 @@ d3.csv("data/" + character + ".csv", function(error, data) {
 });
 
 //var myVar = setInterval(myTimer, 100);
+$("svg").on('click',function(d,i){
+  playDance();
+});
 
 var gato = 0;
 
 function myTimer() {
     $("#gato" + gato).css("fill","red");
-    if (gato < rownumber ){
+    if (gato < 420 ){
       gato += 1;
     }else{
       gato = 0;
       $(".dot").css("fill","black");
     }
-    console.log(gato);
 }
 }

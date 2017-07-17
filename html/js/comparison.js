@@ -1,4 +1,4 @@
-function makeChart(joint){
+function makeChart(variable1,variable2){
 // Set the dimensions of the canvas / graph
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 550 - margin.left - margin.right,
@@ -13,7 +13,7 @@ var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(10);
+    .orient("bottom").ticks(15);
 
 var yAxis = d3.svg.axis().scale(y)
     .orient("left").ticks(10);
@@ -36,22 +36,32 @@ var svg = d3.select("#chartdiv")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/" + character + ".csv", function(error, data) {
+d3.csv("data/all.csv", function(error, data) {
     data.forEach(function(d) {
-        d.angle = +d["rwristx"];
-        d.angle2 = +d["lwristx"];
+        d.angle = +d[variable1];
+        d.angle2 = +d[variable2];
     });
 
     // Scale the range of the data
-    y.domain(d3.extent(data, function(d) { return d.angle2; }));
-    x.domain([0, rownumber]);
+    var extentArray = d3.extent([].concat(data.map(function (d) {
+        return (d.angle);
+    }), data.map(function (d) {
+        return (d.angle2);
+    })));
+    extentArray[0] = extentArray[0] - 10;
+    extentArray[1] = extentArray[1] + 10;
+    y.domain(extentArray);
+    x.domain([0, 500]);
 
-    // Add the valueline path.
-    /*svg.append("path")
-        .attr("class", "line")
-        .attr("d", valueline(data));
-    */
-
+    //max and min info.
+    var variable1extent = d3.extent(data, function(d) { return d.angle; });
+    var variable2extent = d3.extent(data, function(d) { return d.angle2; });
+    $("#min1").html("Min: " + variable1extent[0]);
+    $("#max1").html("Max: " + variable1extent[1]);
+    $("#rom1").html("ROM: " + (variable1extent[1]-variable1extent[0]));
+    $("#min2").html("Min: " + variable2extent[0]);
+    $("#max2").html("Max: " + variable2extent[1]);
+    $("#rom2").html("ROM: " + (variable2extent[1]-variable2extent[0]));
     // Add the scatterplot
     var counter = 0;
     var counter2 = 0;

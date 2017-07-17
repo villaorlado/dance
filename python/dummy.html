@@ -117,6 +117,14 @@
                                         <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                                     </p>
                                   </video>
+                                  <p>&nbsp;
+                                  <div class="text-left">
+                                      <div class="form-group">
+
+                                      <select id="joint" class="form-control">
+                                      </select>
+                                    </div>
+                                  </div>
                                 </div>
 
                             </div>
@@ -125,48 +133,29 @@
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> Right knee in relation to time</h3>
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i><span id="currentJoint"></span></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">
                                     <div id="chartdiv" height="10px" widht="10px"></div>
                                 </div>
-                                <div class="text-center">
-                                    <div class="form-group">
-                                    <label>Select a joint</label>
-                                    <select id="joint" class="form-control">
-                                      <option value="lkneex">Left Knee X</option>
-                                      <option value="lkneey">Left Knee Y</option>
-                                      <option value="rkneex">Right Knee X</option>
-                                      <option value="rkneey">Right Knee Y</option>
-                                      <option value="rwristx">Left Wrist X</option>
-                                      <option value="lwristy">Left Wrist Y</option>
-                                      <option value="lwristz">Left Wrist Z</option>
-                                      <option value="rwristx">Right Wrist X</option>
-                                      <option value="rwristy">Right Wrist Y</option>
-                                      <option value="rwristz">Right Wrist Z</option>
-                                      <option value="lhipx">Left Hip Angle X</option>
-                                      <option value="lhipy">Left Hip Angle Y</option>
-                                      <option value="lhipz">Left Hip Angle Z</option>
-                                      <option value="rhipx">Right Hip Angle X</option>
-                                      <option value="rhipy">Right Hip Angle Y</option>
-                                      <option value="rhipz">Right Hip Angle Z</option>
-                                      <option value="rshoulderx">Right Shoulder X</option>
-                                      <option value="rshouldery">Right Shoulder Y</option>
-                                      <option value="lshoulderx">Left Shoulder X</option>
-                                      <option value="lshouldery">Left Shoulder Y</option>
-                                    </select>
-                                  </div>
-
-
-
-                                </div>
+                                <span id="min">&nbsp;</span>
+                                <span id="max">&nbsp;</span>
+                                <span id="rom">&nbsp;</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
+                <svg id="jointangle" xmlns="http://www.w3.org/2000/svg" height="300">
+                    <line id="line" x1="100" y1="100" x2="100" y2="180" stroke-width="2"
+                          stroke="black">
+                    </line>
 
+                    <line id="line3" x1="100" y1="20" x2="100" y2="100" stroke-width="2"
+                          stroke="red">
+                    </line>
+                </svg>
                 <!-- Exmplanation -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -203,21 +192,23 @@ Penari golek ayun-ayun mengenakan balutan baju beludru hitam serasi dipadankan d
     <!-- D3 -->
     <script src="js/d3.v3.min.js"></script>
     <script>
-    var character = "&&&";
-    var rownumber = 300;
+    //var character = "&&&";
+    var rownumber = 400;
     </script>
     <script src="js/jointsthroughtime.js"></script>
     <script src="js/dancevideo.js"></script>
 
 <script type="text/javascript">
 
-makeChart("lkneex",false);
+makeChart("&&&_LKneeAngles_x",false);
+$("#currentJoint").html("Left Knee (x)");
 var interval = setInterval(checkVideo, 100);
 
 $("#joint").change(function(){
   clearInterval(interval);
-  d3.selectAll("svg").remove();
+  d3.selectAll("#jointsthroughtime").remove();
   makeChart($('#joint').val(),true);
+  $("#currentJoint").html($('#joint option:selected').text());
   var interval = setInterval(checkVideo, 100);
 });
 

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Comparisons</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!--Video.js-->
+    <link href="css/video-js.css" rel="stylesheet" type="text/css">
+
+    <!--D3 graph -->
+    <link rel="stylesheet" href="css/comparisson.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">JOGET</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+              <li><a href="#">A biomechanic analysis of Javanese Dance</a></li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="luruh.html"><i class="fa fa-fw fa-bar-chart-o"></i> Luruh</a>
+                    </li>
+                    <li>
+                        <a href="lanyap.html"><i class="fa fa-fw fa-bar-chart-o"></i> Lanyap</a>
+                    </li>
+                    <li>
+                        <a href="gagah.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gagah</a>
+                    </li>
+                    <li>
+                        <a href="raksasa.html"><i class="fa fa-fw fa-bar-chart-o"></i> Raksasa</a>
+                    </li>
+                    <li>
+                        <a href="jatayu.html"><i class="fa fa-fw fa-bar-chart-o"></i> Jatayu</a>
+                    </li>
+                    <li>
+                        <a href="comparisons.html"><i class="fa fa-fw fa-table"></i> Comparisons</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Comparison Matrix
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                  <div class="col-lg-3">
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">
+                              <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i>First varibale</h3>
+                          </div>
+                          <div class="panel-body">
+                              <div class="flot-chart">
+                                <div class="form-group">
+                                <label>Select a joint</label>
+                                <select id="joint1" class="form-control">
+                                </select>
+                                <p>&nbsp;
+                                <p>
+                                <label>Select a plane (x,y,z)</label>
+                                <select id="plane1" class="form-control">
+                                  <option value="x">x</option>
+                                  <option value="y">y</option>
+                                  <option value="z">z</option>
+                                </select>
+                                <p>&nbsp;
+                                <p>
+                                <label>Select a character type</label>
+                                <select id="character1" class="form-control">
+                                  <option value="luruh">Luruh</option>
+                                  <option value="lanyap">Lanyap</option>
+                                  <option value="gagah">Gagah</option>
+                                  <option value="wanara">Wanara</option>
+                                  <option value="jatayu">Jatayu</option>
+                                  <option value="raksasa">Raksasa</option>
+                                </select>
+                                <p>&nbsp;
+                                <p id="min1"></p>
+                                <p id="max1"></p>
+                                <p id="rom1"></p>
+                              </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i>Second variable</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="flot-chart">
+                                  <div class="form-group">
+
+                                  <label>Select a joint</label>
+                                  <select id="joint2" class="form-control">
+                                  </select>
+                                  <p>&nbsp;
+                                  <p>
+                                  <label>Select a plane (x,y,z)</label>
+                                  <select id="plane2" class="form-control">
+                                    <option value="x">x</option>
+                                    <option value="y">y</option>
+                                    <option value="z">z</option>
+                                  </select>
+                                  <p>&nbsp;
+                                  <p>
+                                  <label>Select a character type</label>
+                                  <select id="character2" class="form-control">
+                                    <option value="luruh">Luruh</option>
+                                    <option value="lanyap">Lanyap</option>
+                                    <option value="gagah">Gagah</option>
+                                    <option value="wanara">Wanara</option>
+                                    <option value="jatayu">Jatayu</option>
+                                    <option value="raksasa">Raksasa</option>
+                                  </select>
+                                  <p>
+
+                             <p>&nbsp;
+                             <p id="min2">&nbsp;</p>
+                             <p id="max2">&nbsp;</p>
+                             <p id="rom2">&nbsp;</p>
+                             <div class="text-right">
+                               <p>&nbsp;
+                                 <p>&nbsp;
+                                 <p>
+                            <a id="show" href="#">Show the graph <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> Select the first variable to compare</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="flot-chart">
+                                    <div id="chartdiv" height="10px" widht="10px"></div>
+                                </div>
+                                <div class="text-center">
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Exmplanation -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Javanese context</h2>
+<p class="lead">                        Tari Golek Ayun-ayun yang merupakan salah satu tarian tradisional Yogyakarta yang diciptakan oleh (Alm) KRT Sasmita Dipura (Romo Sas).
+
+Tarian ini ditampilkan untuk menyambut tamu kehormatan dan biasanya dibawakan oleh dua orang penari. Gerakannya sangat lembut dan penuh makna. seolah sang penari sedang bersolek. Gerakan yang lain juga memperlihatkan seolah ia tengah menyulam.
+
+Penari golek ayun-ayun mengenakan balutan baju beludru hitam serasi dipadankan dengan bawahan kain batik putih. Mahkota merak bersayap merah muda tambah mempercantik penampilan sang penari Tarian ini dapat disaksikan setiap hari Minggu di Pendapa (Bangsal) Sri Manganti, Keraton Jogjakarta dari pukul 10.00 WIB sampai dengan 12.00 WIB. Biasanya ada tiga jenis tarian yang ditampilkan. Tari Golek Ayun-ayun, Beksan Srikandi Suradewati dan Sendratari Arjuna Wiwaha.
+</p>
+                    </div>
+                  </div>
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Video.js-->
+    <script src="js/video.js"></script>
+
+    <!-- D3 -->
+    <script src="js/d3.v3.min.js"></script>
+    <script>
+    //var character = "&&&";
+    var rownumber = 400;
+    </script>
+    <script src="js/comparison.js"></script>
+
+
+<script type="text/javascript">
+
+//makeChart("&&&_LKneeAngles_x",false);
+//var interval = setInterval(checkVideo, 100);
+
+$("#show").click(function(){
+  d3.selectAll("svg").remove();
+  joint1 = $('#joint1').val();
+  plane1 = $('#plane1').val();
+  character1 = $('#character1').val();
+  joint2 = $('#joint2').val();
+  plane2 = $('#plane2').val();
+  character2 = $('#character2').val();
+  variable1 = character1+"_"+joint1+"_"+plane1;
+  variable2 = character2+"_"+joint2+"_"+plane2;
+  //alert(variable1+variable2);
+  character = "gagah";
+  rownumber = 400;
+  makeChart(variable1,variable2);
+  //clearInterval(interval);
+  //d3.selectAll("svg").remove();
+  //makeChart($('#joint').val(),true);
+  //var interval = setInterval(checkVideo, 100);
+});
+
+</script>
+
+</body>
+
+</html>
