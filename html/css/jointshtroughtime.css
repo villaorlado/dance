@@ -17,7 +17,8 @@ path {
 #jointangle{
   position:fixed;
   right:-100px;
-  top:200px
+  top:200px;
+  display:none
 }
 
 svg{
