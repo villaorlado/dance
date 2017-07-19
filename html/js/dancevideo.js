@@ -6,7 +6,7 @@ function checkVideo() {
       $("#gato" + i).css("fill","black");
     }
     for (i = 0; i<seconds; i++){
-      $("#gato" + i).css("fill","red");
+      $("#gato" + i).css("fill",sideColor);
     }
 }
 

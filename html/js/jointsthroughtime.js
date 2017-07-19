@@ -4,6 +4,12 @@ if (reload){
   //svg.remove();
 }
 
+if (joint.indexOf("_L") !== -1){
+  sideColor = "red";
+}else{
+  sideColor = "#7FFF00";
+}
+
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 550 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
@@ -104,7 +110,7 @@ $("svg").on('click',function(d,i){
 var gato = 0;
 
 function myTimer() {
-    $("#gato" + gato).css("fill","red");
+    $("#gato" + gato).css("fill",sideColor);
     if (gato < 420 ){
       gato += 1;
     }else{
