@@ -9,6 +9,9 @@ html = open("dummy.html").read()
 
 for t in types:		
 	newhtml = html.replace("&&&",t);
+	javaneseContext = open("context/%s.html" % t).read()
+	newhtml = newhtml.replace("@@@@",javaneseContext);
+	
 	soup = BeautifulSoup(newhtml, "html.parser")
 	soup.title.string = t.title();
 	
