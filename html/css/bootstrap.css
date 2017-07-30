@@ -4961,6 +4961,14 @@ a.badge:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
+  height:300px;
+  width:100%;
+  color:white;
+  font-size: 30px;
+  background-size: 1200px auto;
+  background-position: 0px -200px;
+  background-repeat: no-repeat;
+  background-image: url("../img/img1.jpg");
 }
 .jumbotron h1,
 .jumbotron .h1 {
