@@ -1,9 +1,12 @@
 function makeChart(joint1,joint2){
 // Set the dimensions of the canvas / graph
 
+joint1_text = joint1.replace("_"," (").replace("L","Left ").replace("R","Right ").replace("Angles","") + ")";
+joint2_text = joint2.replace("_"," (").replace("L","Left ").replace("R","Right ").replace("Angles","") + ")";
+
 var margin = {top: 30, right: 20, bottom: 50, left: 50},
     width = 550 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    height = 370 - margin.top - margin.bottom;
 
 // Set the ranges
 var x = d3.scale.linear().range([0, width]);
@@ -65,22 +68,22 @@ d3.csv("data/rom.csv", function(error, data) {
 
     svg.append("text")      // text label for the x axis
     .attr("x", width / 2 )
-    .attr("y",  height + margin.bottom)
+    .attr("y",  height - 15+ margin.bottom)
         .style("text-anchor", "middle")
-        .text(joint1);
+        .text(joint1_text);
 
     // Add the Y Axis
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
 
-        svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left)
-            .attr("x",0 - (height / 2))
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text(joint2);
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x",0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text(joint2_text);
 
 });
 }

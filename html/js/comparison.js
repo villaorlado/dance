@@ -1,8 +1,14 @@
 function makeChart(variable1,variable2){
+
+joint1_text = variable1.replace("_"," ").replace("L"," Left ").replace("R"," Right ").replace("Angles","").replace("_", " (") + ")";
+joint1_text = joint1_text[0].toUpperCase() + joint1_text.substring(1);
+joint2_text = variable2.replace("_"," ").replace("L"," Left ").replace("R"," Right ").replace("Angles","").replace("_", " (") + ")";
+joint2_text = joint2_text[0].toUpperCase() + joint2_text.substring(1);
+
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
+var margin = {top: 30, right: 20, bottom: 50, left: 50},
     width = 550 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    height = 370 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -73,6 +79,7 @@ d3.csv("data/all.csv", function(error, data) {
           counter += 1;
           return "gato" + counter;
         })
+        .attr("data-legend",joint1_text)
         .on('click',function(d,i){
 
           videoTime =  parseInt(this.id.split("gato")[1])/100;
@@ -98,6 +105,7 @@ d3.csv("data/all.csv", function(error, data) {
               counter += 1;
               return "gato" + counter;
             })
+            .attr("data-legend",joint2_text)
             .on('click',function(d,i){
 
               videoTime =  parseInt(this.id.split("gato")[1])/100;
@@ -121,6 +129,28 @@ d3.csv("data/all.csv", function(error, data) {
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+
+
+            svg.append("text")      // text label for the x axis
+                .attr("x", width / 2 )
+                .attr("y",  height - 15+ margin.bottom)
+                .style("text-anchor", "middle")
+                .text("Time (miliseconds)");
+
+
+           svg.append("text")
+               .attr("transform", "rotate(-90)")
+               .attr("y", 0 - margin.left)
+               .attr("x",0 - (height / 2))
+               .attr("dy", "1em")
+               .style("text-anchor", "middle")
+               .text("Angles (degree)");
+
+    legend = svg.append("g")
+    .attr("transform","translate(350,0)")
+      .attr("class","legend")
+      .style("font-size","12px")
+      .call(d3.legend)
 
 });
 

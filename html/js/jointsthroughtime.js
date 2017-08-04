@@ -10,9 +10,9 @@ if (joint.indexOf("_L") !== -1){
   sideColor = "#7FFF00";
 }
 
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
+var margin = {top: 30, right: 20, bottom: 60, left: 50},
     width = 550 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    height = 370 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -23,10 +23,10 @@ var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
+    .orient("bottom").ticks(10);
 
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(5);
+    .orient("left").ticks(10);
 
 // Define the line
 var cn = 0;
@@ -55,7 +55,7 @@ d3.csv("data/all.csv", function(error, data) {
     // Scale the range of the data
     jointExtent = d3.extent(data, function(d) { return d.angle; });
     y.domain([jointExtent[0]-10,jointExtent[1]+10]);
-    x.domain([0, rownumber]);
+    x.domain([0, 500]);
     $("#min").html("<b>Min:</b> "+jointExtent[0]);
     $("#max").html("<b>Max:</b> "+jointExtent[1]);
     $("#rom").html("<b>Rom:</b> "+(jointExtent[1]-jointExtent[0]));
@@ -100,6 +100,21 @@ d3.csv("data/all.csv", function(error, data) {
         .attr("class", "y axis")
         .call(yAxis);
 
+
+    svg.append("text")      // text label for the x axis
+        .attr("x", width / 2 )
+        .attr("y",  height - 15+ margin.bottom)
+        .style("text-anchor", "middle")
+        .text("Time (miliseconds)");
+
+
+   svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("y", 0 - margin.left)
+       .attr("x",0 - (height / 2))
+       .attr("dy", "1em")
+       .style("text-anchor", "middle")
+       .text("Angles (degree)");
 });
 
 //var myVar = setInterval(myTimer, 100);

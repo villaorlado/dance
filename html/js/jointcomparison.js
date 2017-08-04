@@ -1,8 +1,8 @@
 function makeChart(joint){
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
+var margin = {top: 30, right: 20, bottom: 60, left: 50},
     width = 550 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    height = 390 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -192,6 +192,21 @@ d3.csv("data/all.csv", function(error, data) {
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+
+        svg.append("text")      // text label for the x axis
+            .attr("x", width / 2 )
+            .attr("y",  height - 15+ margin.bottom)
+            .style("text-anchor", "middle")
+            .text("Time (miliseconds)");
+
+
+       svg.append("text")
+           .attr("transform", "rotate(-90)")
+           .attr("y", 0 - margin.left)
+           .attr("x",0 - (height / 2))
+           .attr("dy", "1em")
+           .style("text-anchor", "middle")
+           .text("Angles (degree)");
 
 });
 
