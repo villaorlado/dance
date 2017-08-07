@@ -100,6 +100,13 @@
        </a>
       </li>
       <li>
+       <a href="wanara.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Wanara
+       </a>
+      </li>
+      <li>
        <a href="comparisons.html">
         <i class="fa fa-fw fa-table">
         </i>
@@ -344,35 +351,97 @@
        </p>
       </div>
      </div>
-     <!-- /.row -->
+     <div class="row">
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Indrajit.jpg">
+         <img alt="" src="img/Indrajit.jpg"/>
+        </a>
+        <div class="caption">
+         Indrajit, the son of Rahwana.
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Indrajit_kneeling.jpg">
+         <img alt="" src="img/Indrajit_kneeling.jpg"/>
+        </a>
+        <div class="caption">
+         Indrajit kneeling
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Indrajit_standing.jpg">
+         <img alt="" src="img/Indrajit_standing.jpg"/>
+        </a>
+        <div class="caption">
+         Indrajit standing
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/unnamed_gagah_kneeling.jpg">
+         <img alt="" src="img/unnamed_gagah_kneeling.jpg"/>
+        </a>
+        <div class="caption">
+         Unnamed
+         <i>
+          gagah
+         </i>
+         characters kneeling
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/unnamed_gagah_standing.jpg">
+         <img alt="" src="img/unnamed_gagah_standing.jpg"/>
+        </a>
+        <div class="caption">
+         Unnamed
+         <i>
+          gagah
+         </i>
+         characters standing
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
-    <!-- /.container-fluid -->
    </div>
-   <!-- /#page-wrapper -->
   </div>
-  <!-- /#wrapper -->
-  <!-- jQuery -->
-  <script src="js/jquery.js">
-  </script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js">
-  </script>
-  <!-- Video.js-->
-  <script src="js/video.js">
-  </script>
-  <!-- D3 -->
-  <script src="js/d3.v3.min.js">
-  </script>
-  <script>
-   //var character = "gagah";
+ </body>
+</html>
+<!-- /.row -->
+<!-- /.container-fluid -->
+<!-- /#page-wrapper -->
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="js/jquery.js">
+</script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js">
+</script>
+<!-- Video.js-->
+<script src="js/video.js">
+</script>
+<!-- D3 -->
+<script src="js/d3.v3.min.js">
+</script>
+<script>
+ //var character = "gagah";
     var rownumber = 400;
-  </script>
-  <script src="js/jointsthroughtime.js">
-  </script>
-  <script src="js/dancevideo.js">
-  </script>
-  <script type="text/javascript">
-   makeChart("gagah_LKneeAngles_x",false);
+</script>
+<script src="js/jointsthroughtime.js">
+</script>
+<script src="js/dancevideo.js">
+</script>
+<script type="text/javascript">
+ makeChart("gagah_LKneeAngles_x",false);
 $("#currentJoint").html("Left Knee (x)");
 var interval = setInterval(checkVideo, 100);
 
@@ -383,6 +452,4 @@ $("#joint").change(function(){
   $("#currentJoint").html($('#joint option:selected').text());
   var interval = setInterval(checkVideo, 100);
 });
-  </script>
- </body>
-</html>
+</script>

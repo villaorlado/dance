@@ -100,6 +100,13 @@
        </a>
       </li>
       <li>
+       <a href="wanara.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Wanara
+       </a>
+      </li>
+      <li>
        <a href="comparisons.html">
         <i class="fa fa-fw fa-table">
         </i>
@@ -309,35 +316,89 @@
        </p>
       </div>
      </div>
-     <!-- /.row -->
+     <div class="row">
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Jatayu.jpg">
+         <img alt="" src="img/Jatayu.jpg"/>
+        </a>
+        <div class="caption">
+         Jatayu entering the stage
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Jatayu2.jpg">
+         <img alt="" src="img/Jatayu2.jpg"/>
+        </a>
+        <div class="caption">
+         Jatayu center stage
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Jatayu_kneeling.jpg">
+         <img alt="" src="img/Jatayu_kneeling.jpg"/>
+        </a>
+        <div class="caption">
+         Jatayu kneeling
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Jatayu_standing.jpg">
+         <img alt="" src="img/Jatayu_standing.jpg"/>
+        </a>
+        <div class="caption">
+         Jatayu standing
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Jatayu_standing2.jpg">
+         <img alt="" src="img/Jatayu_standing2.jpg"/>
+        </a>
+        <div class="caption">
+         Jatayu standing
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
-    <!-- /.container-fluid -->
    </div>
-   <!-- /#page-wrapper -->
   </div>
-  <!-- /#wrapper -->
-  <!-- jQuery -->
-  <script src="js/jquery.js">
-  </script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js">
-  </script>
-  <!-- Video.js-->
-  <script src="js/video.js">
-  </script>
-  <!-- D3 -->
-  <script src="js/d3.v3.min.js">
-  </script>
-  <script>
-   //var character = "jatayu";
+ </body>
+</html>
+<!-- /.row -->
+<!-- /.container-fluid -->
+<!-- /#page-wrapper -->
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="js/jquery.js">
+</script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js">
+</script>
+<!-- Video.js-->
+<script src="js/video.js">
+</script>
+<!-- D3 -->
+<script src="js/d3.v3.min.js">
+</script>
+<script>
+ //var character = "jatayu";
     var rownumber = 400;
-  </script>
-  <script src="js/jointsthroughtime.js">
-  </script>
-  <script src="js/dancevideo.js">
-  </script>
-  <script type="text/javascript">
-   makeChart("jatayu_LKneeAngles_x",false);
+</script>
+<script src="js/jointsthroughtime.js">
+</script>
+<script src="js/dancevideo.js">
+</script>
+<script type="text/javascript">
+ makeChart("jatayu_LKneeAngles_x",false);
 $("#currentJoint").html("Left Knee (x)");
 var interval = setInterval(checkVideo, 100);
 
@@ -348,6 +409,4 @@ $("#joint").change(function(){
   $("#currentJoint").html($('#joint option:selected').text());
   var interval = setInterval(checkVideo, 100);
 });
-  </script>
- </body>
-</html>
+</script>

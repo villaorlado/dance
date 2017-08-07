@@ -99,6 +99,13 @@
         Jatayu
        </a>
       </li>
+      <li class="active">
+       <a href="wanara.html">
+        <i class="fa fa-fw fa-bar-chart-o">
+        </i>
+        Wanara
+       </a>
+      </li>
       <li>
        <a href="comparisons.html">
         <i class="fa fa-fw fa-table">
@@ -334,35 +341,97 @@
        </p>
       </div>
      </div>
-     <!-- /.row -->
+     <div class="row">
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Wanara.jpg">
+         <img alt="" src="img/Wanara.jpg"/>
+        </a>
+        <div class="caption">
+         Hanoman.
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/wanara_Kneeling.jpg">
+         <img alt="" src="img/wanara_Kneeling.jpg"/>
+        </a>
+        <div class="caption">
+         Hanoman kneeling
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/Wanara_standing.jpg">
+         <img alt="" src="img/Wanara_standing.jpg"/>
+        </a>
+        <div class="caption">
+         Hanoman standing
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/unnamed_Wanara_standing.jpg">
+         <img alt="" src="img/unnamed_Wanara_standing.jpg"/>
+        </a>
+        <div class="caption">
+         Unnamed
+         <i>
+          wanara
+         </i>
+         standing
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="thumbnail">
+        <a href="img/unnamed_Wanara_kneeling.jpg">
+         <img alt="" src="img/unnamed_Wanara_kneeling.jpg"/>
+        </a>
+        <div class="caption">
+         Unnamed
+         <i>
+          wanara
+         </i>
+         kneeling
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
-    <!-- /.container-fluid -->
    </div>
-   <!-- /#page-wrapper -->
   </div>
-  <!-- /#wrapper -->
-  <!-- jQuery -->
-  <script src="js/jquery.js">
-  </script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js">
-  </script>
-  <!-- Video.js-->
-  <script src="js/video.js">
-  </script>
-  <!-- D3 -->
-  <script src="js/d3.v3.min.js">
-  </script>
-  <script>
-   //var character = "wanara";
+ </body>
+</html>
+<!-- /.row -->
+<!-- /.container-fluid -->
+<!-- /#page-wrapper -->
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="js/jquery.js">
+</script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js">
+</script>
+<!-- Video.js-->
+<script src="js/video.js">
+</script>
+<!-- D3 -->
+<script src="js/d3.v3.min.js">
+</script>
+<script>
+ //var character = "wanara";
     var rownumber = 400;
-  </script>
-  <script src="js/jointsthroughtime.js">
-  </script>
-  <script src="js/dancevideo.js">
-  </script>
-  <script type="text/javascript">
-   makeChart("wanara_LKneeAngles_x",false);
+</script>
+<script src="js/jointsthroughtime.js">
+</script>
+<script src="js/dancevideo.js">
+</script>
+<script type="text/javascript">
+ makeChart("wanara_LKneeAngles_x",false);
 $("#currentJoint").html("Left Knee (x)");
 var interval = setInterval(checkVideo, 100);
 
@@ -373,6 +442,4 @@ $("#joint").change(function(){
   $("#currentJoint").html($('#joint option:selected').text());
   var interval = setInterval(checkVideo, 100);
 });
-  </script>
- </body>
-</html>
+</script>
