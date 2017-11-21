@@ -18,32 +18,27 @@ path {
   opacity:0.5;
 }
 
-.gagah{
+#gagah{
   stroke:black;
 }
 
-.luruh{
-  fill:blue;
-  stroke:blue;
+#luruh{
+  stroke:steelblue;
 }
 
-.jatayu{
-  fill:red;
-  stroke:red;
+#jatayu{
+  stroke:firebrick;
 }
 
-.raksasa{
-  fill:green;
+#raksasa{
   stroke:green;
 }
 
-.lanyap{
-  fill:orange;
+#lanyap{
   stroke:orange;
 }
 
-.wanara{
-  fill:brown;
+#wanara{
   stroke:brown;
 }
 

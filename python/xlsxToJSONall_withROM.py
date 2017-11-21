@@ -1,3 +1,7 @@
+'''
+This script opens each *character* file and then reads the measurements for each *joint*. These are all written out to ../data/all.xlsx and ../data/rom.xlsx 
+'''
+
 import re
 import xlrd # this is for reading the exisitng file
 import glob

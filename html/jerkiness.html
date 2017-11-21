@@ -27,6 +27,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+		path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+    .characterLine{
+		
+	}
+	
+	
+	
+    </style>
  </head>
  <body>
   <div id="wrapper">
@@ -122,7 +136,7 @@
      <div class="row">
       <div class="col-lg-12">
        <h1 class="page-header">
-        Comparison Matrix (all styles for one joint)
+        Jerkiness Matrix (all styles for one joint)
        </h1>
       </div>
      </div>
@@ -134,7 +148,7 @@
          <h3 class="panel-title">
           <i class="glyphicon glyphicon-stats">
           </i>
-          Max, Min and ROM
+          Max, Min and Range
          </h3>
         </div>
         <div class="panel-body">
@@ -239,7 +253,7 @@
                            <th>Character Type</th>
                            <th>Max</th>
                            <th>Min</th>
-                           <th>ROM</th>
+                           <th>Range</th>
                        </tr>
                    </thead>
                    <tfoot>
@@ -247,7 +261,7 @@
                            <th>Character Type</th>
                            <th>Max</th>
                            <th>Min</th>
-                           <th>ROM</th>
+                           <th>Range</th>
                        </tr>
                    </tfoot>
                </table>
@@ -313,11 +327,11 @@
   <script src="js/jointcomparisonline.js"></script>
   <script src="js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
-   makeChart("all","LKneeAngles_x");
+   makeChart("jerkiness","LKneeAngles_x");
    $("#joint").change(function(){
      d3.selectAll("svg").remove();
      $("#linktableDisguised").DataTable().destroy()
-     makeChart("all",$('#joint').val());
+     makeChart("jerkiness",$('#joint').val());
      $("#graphinfo").html("Showing all styles for "+ $('#joint option:selected').text());
    });
   </script>

@@ -1,11 +1,8 @@
 function makeChart(dataSource,joint){
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 60, left: 50},
+var margin = {top: 30, right: 20, bottom: 60, left: 80},
     width = 550 - margin.left - margin.right,
     height = 390 - margin.top - margin.bottom;
-
-// Parse the date / time
-var parseDate = d3.time.format("%d-%b-%y").parse;
 
 // Set the ranges
 var x = d3.scale.linear().range([0, width]);
@@ -27,14 +24,26 @@ var svg = d3.select("#chartdiv")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
+// Define the line functions
+var luruh = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.luruh); });
+var lanyap = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.lanyap); });
+var gagah = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.gagah); });
+var jatayu = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.jatayu); });
+var wanara = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.wanara); });
+var raksasa = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.raksasa); });
+
+// Get the data
 d3.csv("data/"+dataSource+".csv", function(error, data) {
+    var cn = 0;
     data.forEach(function(d) {
+		d.number = cn;
         d.luruh = +d["luruh_"+joint];
         d.lanyap = +d["lanyap_"+joint];
         d.gagah = +d["gagah_"+joint];
         d.wanara = +d["wanara_"+joint];
         d.jatayu = +d["jatayu_"+joint];
         d.raksasa = +d["raksasa_"+joint];
+        cn += 1;
     });
 
     // Scale the range of the data
@@ -58,17 +67,16 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
         return (d.jatayu);
     })
     ));
-    extentArray[0] = extentArray[0] - 0;
-    extentArray[1] = extentArray[1] + 0;
-    //y.domain(extentArray);
-    y.domain([0.004,-0.004]);
+    increment = (extentArray[1]-extentArray[0]) /10;
+    extentArray[0] = extentArray[0] - increment;
+    extentArray[1] = extentArray[1] + increment;
+    y.domain(extentArray);
     
     x.domain([0, 500]);
 
     //max and min info.
     var dataSet  = [];
     var characterTypes = "luruh,lanyap,gagah,wanara,jatayu,raksasa".split(",");
-    //var characterColors = {lanyap"luruh":blue,red,green,pink,brown}
     counter = 0;
     characterTypes.forEach(function(item,index){
       var extent = d3.extent(data, function(d) { return d[item]; });
@@ -78,7 +86,7 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
       data:dataSet,"order": [[ 3, "desc" ]],
       "createdRow": function( row, data, dataIndex ) {
         switch ( data[0]) {
-          case "luruh": $(row).css('color','blue'); break;
+          case "luruh": $(row).css('color','steelblue'); break;
           case "lanyap": $(row).css('color','orange'); break;
           case "jatayu": $(row).css('color','red'); break;
           case "raksasa": $(row).css('color','green'); break;
@@ -93,8 +101,8 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
       $(".characterLines").css("opacity","0.1");
       $(".characterLines").css("stroke-width","1");
       $(this).css("cursor","pointer");
-      $("."+data[0]).css("opacity","1");
-      $("."+data[0]).css("stroke-width","3");
+      $("#"+data[0]).css("opacity","1");
+      $("#"+data[0]).css("stroke-width","2");
     });
 
     $('#linktableDisguised tbody').on('click', 'tr', function () {
@@ -106,32 +114,14 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
       $(".characterLines").css("opacity","0.5");
       $(".characterLines").css("stroke-width","1");
     });
-    // Add the valueline path.
-    /*
-    svg.append("path")
-        .attr("class", "luruh")
-        .attr("d", luruhline(data));
-
-    svg.append("path")
-        .attr("class", "lanyap")
-        .attr("d", lanyapline(data));
-
-    svg.append("path")
-        .attr("class", "gagah")
-        .attr("d", gagahline(data));
-
-    svg.append("path")
-        .attr("class", "wanara")
-        .attr("d", wanaraline(data));
-
-    svg.append("path")
-        .attr("class", "jatayu")
-        .attr("d", jatayuline(data));
-
-    svg.append("path")
-        .attr("class", "raksasa")
-        .attr("d", raksasaline(data));
-    */
+    
+    // Add the paths.
+    svg.append("path").attr("class", "characterLines").attr("id", "luruh").attr("d", luruh(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "lanyap").attr("d", lanyap(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "gagah").attr("d", gagah(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "wanara").attr("d", wanara(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "jatayu").attr("d", jatayu(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "raksasa").attr("d", raksasa(data));
 
     function plotJoint(characterType){
       var counter = 0;
@@ -152,38 +142,13 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
         });
     };
 
-    plotJoint("gagah");
-    plotJoint("luruh");
-    plotJoint("lanyap");
-    plotJoint("wanara");
-    plotJoint("raksasa");
-    plotJoint("jatayu");
+    //plotJoint("gagah");
+    //plotJoint("luruh");
+    //plotJoint("lanyap");
+    //plotJoint("wanara");
+    //plotJoint("raksasa");
+    //plotJoint("jatayu");
 
-    /*  // Add the second scatterplot
-      var counter = 0;
-      var counter2 = 0;
-      svg.selectAll("dot")
-            .data(data)
-          .enter().append("circle")
-            .attr("r", 2)
-            .attr("class","second")
-            .attr("id", function(d) {
-              counter += 1;
-              return "gato" + counter;
-            })
-            .on('click',function(d,i){
-
-              videoTime =  parseInt(this.id.split("gato")[1])/100;
-              console.log(videoTime);
-              goDance(videoTime);
-
-            })
-            .attr("cy", function(d) { return y(d.lanyap); })
-            .attr("cx", function(d) {
-              counter2 += 1;
-              return x(counter2);
-            });
-            */
     // Add the X Axis
     svg.append("g")
         .attr("class", "x axis")
@@ -200,7 +165,6 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
             .attr("y",  height - 15+ margin.bottom)
             .style("text-anchor", "middle")
             .text("Time (miliseconds)");
-
 
        svg.append("text")
            .attr("transform", "rotate(-90)")

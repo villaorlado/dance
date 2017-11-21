@@ -1,0 +1,37 @@
+Anova: Single Factor on crossings
+
+SUMMARY
+Groups   Count     Sum     Average   Variance 
+=============================================
+gagah       52       381     7.327      4.028 
+halus       52   253.000     4.865      5.295 
+other       52       325     6.250      3.368 
+
+O'BRIEN TEST FOR HOMOGENEITY OF VARIANCE
+Source of Variation      SS      df      MS       F     P-value   eta^2   Obs. power 
+====================================================================================
+Treatments              99.793     2   49.897   1.586     0.208   0.020        0.332 
+Error                 4812.571   153   31.455                                        
+====================================================================================
+Total                 4912.364   155                                                 
+
+ANOVA
+Source of Variation     SS      df      MS       F       P-value    eta^2   Obs. power 
+======================================================================================
+Treatments            158.359     2   79.179   18.717   5.352e-08   0.197        0.999 
+Error                 647.250   153    4.230                                           
+======================================================================================
+Total                 805.609   155                                                    
+
+POSTHOC MULTIPLE COMPARISONS
+
+Tukey HSD: Table of q-statistics
+        gagah    halus      other   
+===================================
+gagah   0       8.630 **   3.776 *  
+halus           0          4.854 ** 
+other                      0        
+===================================
+  + p < .10 (q-critical[3, 153] = 2.92439163869)
+  * p < .05 (q-critical[3, 153] = 3.34733432749)
+ ** p < .01 (q-critical[3, 153] = 4.18246778331)
