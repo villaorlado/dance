@@ -21,8 +21,8 @@ path {
 }
 
 .gagah{
-  fill:black;
-  color:black;
+  fill:red;
+  color:red;
 }
 
 .luruh{
@@ -31,21 +31,41 @@ path {
 }
 
 .jatayu{
+  fill:black;
+  color:black;
+}
+
+.raksasa{
   fill:red;
   color:red;
 }
 
-.raksasa{
-  fill:green;
-  color:green;
-}
-
 .lanyap{
-  fill:orange;
-  color:orange;
+  fill:blue;
+  color:blue;
 }
 
 .wanara{
-  fill:brown;
-  color:brown;
+  fill:black;
+  color:black;
 }
+
+.circle {
+      width: 14px;
+      height: 14px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+    }
+ 
+ #red{
+	background:red
+ }
+
+#black{
+	background:black
+ }
+ 
+ #blue{
+	background:blue
+ }

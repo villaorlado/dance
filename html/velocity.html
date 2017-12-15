@@ -313,11 +313,11 @@
   <script src="js/jointcomparisonline.js"></script>
   <script src="js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
-   makeChart("velocity","LKneeAngles_x");
+   makeChart("velocity","LKneeAngles_x","Miliseconds","Angles (degree)");
    $("#joint").change(function(){
      d3.selectAll("svg").remove();
      $("#linktableDisguised").DataTable().destroy()
-     makeChart("velocity",$('#joint').val());
+     makeChart("velocity",$('#joint').val(),"Time (miliseconds)","Angles (degree)");
      $("#graphinfo").html("Showing all styles for "+ $('#joint option:selected').text());
    });
   </script>

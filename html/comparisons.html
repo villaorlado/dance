@@ -228,6 +228,7 @@ opacity:0.8;}
                 </p>
                 <p id="rom1">
                 </p>
+                <img id="img1" src="icons/gagah.JPG" width="200px"></img>
                </p>
               </p>
              </p>
@@ -334,16 +335,11 @@ opacity:0.8;}
                  </p>
                  <p id="rom2">
                  </p>
-                 <div class="text-right">
+                 <div>
                   <p>
                    <p>
-                    <p>
-                     <a href="#" id="show">
-                      Show the graph
-                      <i class="fa fa-arrow-circle-right">
-                      </i>
-                     </a>
-                    </p>
+                    
+                    <img id="img2" src="icons/gagah.JPG" width="200px"></img>
                    </p>
                   </p>
                  </div>
@@ -420,7 +416,8 @@ opacity:0.8;}
    //makeChart("&&&_LKneeAngles_x",false);
 //var interval = setInterval(checkVideo, 100);
 
-$("#show").click(function(){
+//$("#show").click(function(){
+$("select").change(function(){
   d3.selectAll("svg").remove();
   joint1 = $('#joint1').val();
   plane1 = $('#plane1').val();
@@ -434,6 +431,10 @@ $("#show").click(function(){
   character = "gagah";
   rownumber = 400;
   makeChart(variable1,variable2);
+  
+  $("#img1").attr("src","icons/" + character1 + ".JPG");
+  $("#img2").attr("src","icons/" + character2 + ".JPG");
+  
   //clearInterval(interval);
   //d3.selectAll("svg").remove();
   //makeChart($('#joint').val(),true);

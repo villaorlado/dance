@@ -327,20 +327,13 @@
                Left Elbow (z)
               </option>
              </select>
-             <p>&nbsp;
-               <div class="text-right">
-                  <p>
-                   <p>
-                    <p>
-                     <a href="#" id="show">
-                      Show the graph
-                      <i class="fa fa-arrow-circle-right">
-                      </i>
-                     </a>
-                    </p>
-                   </p>
-                  </p>
-                 </div>
+             <p>&nbsp;</p>
+               <p>Characters grouped per type:</p>
+               <div class="circle" id="blue"></div><span style="color:blue">Halus</span>
+             <p>&nbsp;</p>  
+               <div class="circle" id="red"></div><span style="color:red">Gagah</span>
+             <p>&nbsp;</p>
+               <div class="circle" id="black"></div><span style="color:black">Others</span>
            </div>
          </div>
         </div>
@@ -397,7 +390,8 @@
   <script src="js/romcomparisons.js"></script>
   <script type="text/javascript">
   makeChart("LKneeAngles_x","RKneeAngles_x");
-   $("#show").click(function(){
+   //$("#show").click(function(){
+   $("select").change(function(){
      d3.selectAll("svg").remove();
      joint1 = $('#joint1').val();
      joint2 = $('#joint2').val();

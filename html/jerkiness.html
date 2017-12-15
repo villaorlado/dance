@@ -327,11 +327,11 @@
   <script src="js/jointcomparisonline.js"></script>
   <script src="js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
-   makeChart("jerkiness","LKneeAngles_x");
+   makeChart("jerkiness","LKneeAngles_x","miliseconds\u00B3","Angles (degree)");
    $("#joint").change(function(){
      d3.selectAll("svg").remove();
      $("#linktableDisguised").DataTable().destroy()
-     makeChart("jerkiness",$('#joint').val());
+     makeChart("jerkiness",$('#joint').val(),"miliseconds\u00B3","Angles (degree)");
      $("#graphinfo").html("Showing all styles for "+ $('#joint option:selected').text());
    });
   </script>

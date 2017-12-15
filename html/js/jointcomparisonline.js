@@ -1,4 +1,4 @@
-function makeChart(dataSource,joint){
+function makeChart(dataSource,joint,xAxisText,yAxisText){
 // Set the dimensions of the canvas / graph
 var margin = {top: 30, right: 20, bottom: 60, left: 80},
     width = 550 - margin.left - margin.right,
@@ -164,7 +164,7 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
             .attr("x", width / 2 )
             .attr("y",  height - 15+ margin.bottom)
             .style("text-anchor", "middle")
-            .text("Time (miliseconds)");
+            .text(xAxisText);
 
        svg.append("text")
            .attr("transform", "rotate(-90)")
@@ -172,7 +172,7 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
            .attr("x",0 - (height / 2))
            .attr("dy", "1em")
            .style("text-anchor", "middle")
-           .text("Angles (degree)");
+           .text(yAxisText);
 
 });
 
