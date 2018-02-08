@@ -25,43 +25,43 @@ var svg = d3.select("#chartdiv")
               "translate(" + margin.left + "," + margin.top + ")");
 
 // Define the line functions
-var luruh = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.luruh); });
-var lanyap = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.lanyap); });
-var gagah = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.gagah); });
+var impur = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.impur); });
+var kagokkinantang = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d["kagok-kinantang"]); });
+var kambeng = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.kambeng); });
 var jatayu = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.jatayu); });
-var wanara = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.wanara); });
-var raksasa = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d.raksasa); });
+var kambengdhengklik = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d["kambeng-dhengklik"]); });
+var kalangkinantang = d3.svg.line().interpolate("bundle").x(function(d) {return x(d.number);}).y(function(d) { return y(d["kalang-kinantang"]); });
 
 // Get the data
 d3.csv("data/"+dataSource+".csv", function(error, data) {
     var cn = 0;
     data.forEach(function(d) {
 		d.number = cn;
-        d.luruh = +d["luruh_"+joint];
-        d.lanyap = +d["lanyap_"+joint];
-        d.gagah = +d["gagah_"+joint];
-        d.wanara = +d["wanara_"+joint];
+        d.impur = +d["impur_"+joint];
+        d["kagok-kinantang"] = +d["kagok-kinantang_"+joint];
+        d.kambeng = +d["kambeng_"+joint];
+        d["kambeng-dhengklik"] = +d["kambeng-dhengklik_"+joint];
         d.jatayu = +d["jatayu_"+joint];
-        d.raksasa = +d["raksasa_"+joint];
+        d["kalang-kinantang"] = +d["kalang-kinantang_"+joint];
         cn += 1;
     });
 
     // Scale the range of the data
     var extentArray = d3.extent([].concat(
     data.map(function (d) {
-        return (d.luruh);
+        return (d.impur);
     }),
     data.map(function (d) {
-        return (d.lanyap);
+        return (d["kagok-kinantang"]);
     }),
     data.map(function (d) {
-        return (d.gagah);
+        return (d.kambeng);
     }),
     data.map(function (d) {
-        return (d.wanara);
+        return (d["kambeng-dhengklik"]);
     }),
     data.map(function (d) {
-        return (d.raksasa);
+        return (d["kalang-kinantang"]);
     }),
     data.map(function (d) {
         return (d.jatayu);
@@ -76,7 +76,7 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
 
     //max and min info.
     var dataSet  = [];
-    var characterTypes = "luruh,lanyap,gagah,wanara,jatayu,raksasa".split(",");
+    var characterTypes = "impur,kagok-kinantang,kambeng,kambeng-dhengklik,jatayu,kalang-kinantang".split(",");
     counter = 0;
     characterTypes.forEach(function(item,index){
       var extent = d3.extent(data, function(d) { return d[item]; });
@@ -86,12 +86,12 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
       data:dataSet,"order": [[ 3, "desc" ]],
       "createdRow": function( row, data, dataIndex ) {
         switch ( data[0]) {
-          case "luruh": $(row).css('color','steelblue'); break;
-          case "lanyap": $(row).css('color','orange'); break;
+          case "impur": $(row).css('color','steelblue'); break;
+          case "kagok-kinantang": $(row).css('color','orange'); break;
           case "jatayu": $(row).css('color','red'); break;
-          case "raksasa": $(row).css('color','green'); break;
-          case "wanara": $(row).css('color','brown'); break;
-          case "gagah": $(row).css('color','black'); break;
+          case "kalang-kinantang": $(row).css('color','green'); break;
+          case "kambeng-dhengklik": $(row).css('color','brown'); break;
+          case "kambeng": $(row).css('color','black'); break;
         }
       }
     });
@@ -116,12 +116,12 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
     });
     
     // Add the paths.
-    svg.append("path").attr("class", "characterLines").attr("id", "luruh").attr("d", luruh(data));
-    svg.append("path").attr("class", "characterLines").attr("id", "lanyap").attr("d", lanyap(data));
-    svg.append("path").attr("class", "characterLines").attr("id", "gagah").attr("d", gagah(data));
-    svg.append("path").attr("class", "characterLines").attr("id", "wanara").attr("d", wanara(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "impur").attr("d", impur(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "kagok-kinantang").attr("d", kagokkinantang(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "kambeng").attr("d", kambeng(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "kambeng-dhengklik").attr("d", kambengdhengklik(data));
     svg.append("path").attr("class", "characterLines").attr("id", "jatayu").attr("d", jatayu(data));
-    svg.append("path").attr("class", "characterLines").attr("id", "raksasa").attr("d", raksasa(data));
+    svg.append("path").attr("class", "characterLines").attr("id", "kalang-kinantang").attr("d", kalangkinantang(data));
 
     function plotJoint(characterType){
       var counter = 0;
@@ -142,11 +142,11 @@ d3.csv("data/"+dataSource+".csv", function(error, data) {
         });
     };
 
-    //plotJoint("gagah");
-    //plotJoint("luruh");
-    //plotJoint("lanyap");
-    //plotJoint("wanara");
-    //plotJoint("raksasa");
+    //plotJoint("kambeng");
+    //plotJoint("impur");
+    //plotJoint("kagok-kinantang");
+    //plotJoint("kambeng-dhengklik");
+    //plotJoint("kalang-kinantang");
     //plotJoint("jatayu");
 
     // Add the X Axis

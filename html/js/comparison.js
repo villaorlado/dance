@@ -147,7 +147,7 @@ d3.csv("data/all.csv", function(error, data) {
                .text("Angles (degree)");
 
     legend = svg.append("g")
-    .attr("transform","translate(350,0)")
+    .attr("transform","translate(300,0)")
       .attr("class","legend")
       .style("font-size","12px")
       .call(d3.legend)
